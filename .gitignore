@@ -1,0 +1,11 @@
+# Exclude cloned project (not part of portfolio site)
+FACILITY-MANAGEMENT-MAINTAINANCE-SYSYTEM/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Env / secrets
+.env
+.env.*
