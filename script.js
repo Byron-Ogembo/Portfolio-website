@@ -11,7 +11,8 @@ const yearEl = document.getElementById("year");
 
 const typingPhrases = [
   "Data Analyst & Business IT Specialist",
-  "Analytics • Cloud • Intelligent Systems",
+  "Chief Data Officer • Map Maven GMB Experts",
+  "SQL • Python • Power BI • Predictive Analytics",
   "Transforming Data Into Business Value"
 ];
 
