@@ -179,7 +179,11 @@ function setupEvents() {
 
       try {
         const formData = new FormData(form);
-        const response = await fetch(form.action, {
+        const endpoint = form.action.includes("/ajax/")
+          ? form.action
+          : form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+        const response = await fetch(endpoint, {
           method: "POST",
           body: formData,
           headers: {
