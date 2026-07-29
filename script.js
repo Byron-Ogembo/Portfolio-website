@@ -179,6 +179,8 @@ function setupEvents() {
 
       try {
         const formData = new FormData(form);
+        formData.set("_replyto", email);
+        formData.set("_subject", `New Portfolio Message from ${name}`);
         const endpoint = form.action.includes("/ajax/")
           ? form.action
           : form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
