@@ -11,7 +11,7 @@ const yearEl = document.getElementById("year");
 
 const typingPhrases = [
   "Data Analyst & Business IT Specialist",
-  "Chief Data Officer • Map Maven GMB Experts",
+  "Data Lead • Map Maven GMB Experts",
   "SQL • Python • Power BI • Predictive Analytics",
   "Transforming Data Into Business Value"
 ];
@@ -132,12 +132,79 @@ function setupEvents() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  const form = document.querySelector(".contact-form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert("Thanks for your message. Byron will get back to you soon.");
-    form.reset();
-  });
+  const form = document.getElementById("contactForm");
+  if (form) {
+    const statusEl = document.getElementById("formStatus");
+    const submitBtn = document.getElementById("submitBtn");
+    const btnText = submitBtn ? submitBtn.querySelector(".btn-text") : null;
+
+    function showStatus(message, type) {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.className = `form-status ${type} show`;
+    }
+
+    function clearStatus() {
+      if (!statusEl) return;
+      statusEl.textContent = "";
+      statusEl.className = "form-status";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      clearStatus();
+
+      const nameInput = form.querySelector("#name");
+      const emailInput = form.querySelector("#email");
+      const messageInput = form.querySelector("#message");
+
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const message = messageInput ? messageInput.value.trim() : "";
+
+      if (!name || !email || !message) {
+        showStatus("Please fill in all fields before sending.", "error");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showStatus("Please provide a valid email address.", "error");
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnText) btnText.textContent = "Sending...";
+      form.classList.add("submitting");
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok || data.success === "true" || data.success === true) {
+          showStatus("✓ Thank you! Your message has been sent successfully. Byron will respond soon.", "success");
+          form.reset();
+        } else {
+          showStatus("✕ Unable to send message. Please email directly at byronogembo337@gmail.com", "error");
+        }
+      } catch (error) {
+        console.error("Contact form error:", error);
+        showStatus("✕ Network error. Please try again or email directly at byronogembo337@gmail.com", "error");
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnText) btnText.textContent = "Send Message";
+        form.classList.remove("submitting");
+      }
+    });
+  }
 }
 
 function init() {

@@ -39,6 +39,7 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
         <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -344,8 +345,51 @@
     <section id="certifications" class="section section-alt">
       <div class="container">
         <div class="section-title reveal">
-          <p class="eyebrow">Certifications &amp; Tools</p>
-          <h2>Technology Ecosystem</h2>
+          <p class="eyebrow">Certifications</p>
+          <h2>Verified Learning &amp; Professional Credentials</h2>
+        </div>
+        <div class="certifications-featured-grid">
+          <article class="certificate-card reveal">
+            <a href="assets/images/thinkbig-google-seo-masterclass-certificate.png" target="_blank" rel="noopener noreferrer" class="certificate-card__image-link" aria-label="View Google SEO Masterclass certificate">
+              <img src="assets/images/thinkbig-google-seo-masterclass-certificate.png" alt="ThinkBig Academy Certificate of Completion for Google SEO Masterclass" class="certificate-card__image" loading="lazy" />
+            </a>
+            <div class="certificate-card__content">
+              <span class="verified-badge">Verified Certificate</span>
+              <h3>Google SEO Masterclass</h3>
+              <p class="certificate-card__organization">ThinkBig Academy</p>
+              <p class="certificate-card__date">Completed July 27, 2026 <span aria-hidden="true">•</span> ID: CERT-A2J-WBQG-MS3A208S</p>
+              <p>Successfully completed comprehensive training in search engine optimization, keyword strategy, technical auditing, search visibility algorithms, and digital performance analytics.</p>
+              <a href="assets/images/thinkbig-google-seo-masterclass-certificate.png" target="_blank" rel="noopener noreferrer" class="btn certificate-card__button">View Certificate</a>
+            </div>
+          </article>
+
+          <article class="certificate-card reveal">
+            <a href="assets/images/thinkbig-data-entry-masterclass-certificate.png" target="_blank" rel="noopener noreferrer" class="certificate-card__image-link" aria-label="View Data Entry Masterclass certificate">
+              <img src="assets/images/thinkbig-data-entry-masterclass-certificate.png" alt="ThinkBig Academy Certificate of Completion for Data Entry Masterclass" class="certificate-card__image" loading="lazy" />
+            </a>
+            <div class="certificate-card__content">
+              <span class="verified-badge">Verified Certificate</span>
+              <h3>Data Entry Masterclass</h3>
+              <p class="certificate-card__organization">ThinkBig Academy</p>
+              <p class="certificate-card__date">Completed July 27, 2026 <span aria-hidden="true">•</span> ID: CERT-A3E-DTT8-MS354SOX</p>
+              <p>Mastered high-precision data entry workflows, automated data cleaning techniques, quality assurance validation, spreadsheet management, and structured data handling.</p>
+              <a href="assets/images/thinkbig-data-entry-masterclass-certificate.png" target="_blank" rel="noopener noreferrer" class="btn certificate-card__button">View Certificate</a>
+            </div>
+          </article>
+
+          <article class="certificate-card reveal">
+            <a href="assets/images/university-of-michigan-html5-certificate.png" target="_blank" rel="noopener noreferrer" class="certificate-card__image-link" aria-label="View Introduction to HTML5 certificate">
+              <img src="assets/images/university-of-michigan-html5-certificate.png" alt="University of Michigan Coursera certificate for Introduction to HTML5" class="certificate-card__image" loading="lazy" />
+            </a>
+            <div class="certificate-card__content">
+              <span class="verified-badge">Verified Certificate</span>
+              <h3>Introduction to HTML5</h3>
+              <p class="certificate-card__organization">University of Michigan <span aria-hidden="true">•</span> Coursera</p>
+              <p class="certificate-card__date">Completed March 4, 2024</p>
+              <p>Successfully completed the Introduction to HTML5 course, gaining foundational skills in HTML5, semantic web structure, forms, multimedia integration, and modern web development best practices.</p>
+              <a href="assets/images/university-of-michigan-html5-certificate.png" target="_blank" rel="noopener noreferrer" class="btn certificate-card__button">View Certificate</a>
+            </div>
+          </article>
         </div>
         <div class="cert-grid">
           <article class="cert-card reveal">
@@ -424,14 +468,26 @@
           <h2>Let&apos;s Build Data-Driven Solutions Together</h2>
         </div>
         <div class="contact-grid">
-          <form class="contact-form reveal">
+          <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/ajax/byronogembo337@gmail.com" method="POST" novalidate>
+            <!-- Anti-spam & Configuration fields -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_subject" value="New Portfolio Message - Byron Ogembo Website" />
+
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required />
             <label for="email">Email</label>
             <input id="email" name="email" type="email" placeholder="your@email.com" required />
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+
+            <div id="formStatus" class="form-status" aria-live="polite"></div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
           </form>
           <aside class="contact-info reveal">
             <h3>Contact Details</h3>
