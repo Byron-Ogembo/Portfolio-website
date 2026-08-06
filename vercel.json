@@ -3,8 +3,6 @@
   "name": "byron-ogembo-portfolio",
   "buildCommand": null,
   "outputDirectory": ".",
-  "routes": [
-    { "src": "/thankyou", "dest": "/thankyou.html" },
-    { "src": "/thankyou.html", "dest": "/thankyou.html" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
