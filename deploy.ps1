@@ -43,4 +43,4 @@ $cvUrl = "https://$owner.github.io/$repo/assets/docs/Ogembo-CV.pdf"
 Write-Host "`nDone! Your site will be live in 1-3 minutes:`n" -ForegroundColor Green
 Write-Host "  Portfolio: $liveUrl"
 Write-Host "  CV:        $cvUrl`n"
-Write-Host "Share these links — they work 24/7 without your PC.`n" -ForegroundColor Cyan
+Write-Host "Share these links - they work 24/7 without your PC.`n" -ForegroundColor Cyan
