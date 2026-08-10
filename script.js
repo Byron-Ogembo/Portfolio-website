@@ -178,32 +178,27 @@ function setupEvents() {
       form.classList.add("submitting");
 
       try {
-        const formData = new FormData(form);
-        formData.set("_replyto", email);
-        formData.set("_subject", `New Portfolio Message from ${name}`);
-        const endpoint = form.action.includes("/ajax/")
-          ? form.action
-          : form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+        const payload = { name, email, message };
 
-        const response = await fetch(endpoint, {
+        const response = await fetch('/api/contact', {
           method: "POST",
-          body: formData,
           headers: {
-            "Accept": "application/json"
-          }
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
         const data = await response.json().catch(() => ({}));
 
-        if (response.ok || data.success === "true" || data.success === true) {
-          showStatus("✓ Thank you! Your message has been sent successfully. Byron will respond soon.", "success");
+        if (response.ok || data.success) {
+          showStatus("Message sent successfully! I'll get back to you soon.", "success");
           form.reset();
         } else {
-          showStatus("✕ Unable to send message. Please email directly at byronogembo337@gmail.com", "error");
+          showStatus("Something went wrong. Please try again.", "error");
         }
       } catch (error) {
         console.error("Contact form error:", error);
-        showStatus("✕ Network error. Please try again or email directly at byronogembo337@gmail.com", "error");
+        showStatus("Something went wrong. Please try again.", "error");
       } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (btnText) btnText.textContent = "Send Message";
